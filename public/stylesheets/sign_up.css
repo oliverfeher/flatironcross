@@ -10,24 +10,6 @@ body {
     animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
-/* #sign_up {
-    margin-top: 10%;
-    justify-self: center;
-    align-self: center;
-    height: 400px;
-    width: 25%;
-    background-color: #f0f0f2;
-}
-
-#overlay {
-    height: 400px;
-    background-color: rgb(25, 111, 208);
-    opacity: 0.8;
-}
-
-form {
-    position: absolute;
-} */
 h2 {
     text-align: center;
     color: #f0f0f2
