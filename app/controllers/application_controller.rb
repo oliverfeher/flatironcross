@@ -17,8 +17,15 @@ class ApplicationController < Sinatra::Base
     end
 
     get "/login" do
-        erb :login
+        erb :"/users/login"
     end
+
+    post "/users/index" do
+        login(params[:email], params[:password])
+        redirect "/users/index/:id"
+    end
+
+
 
     post "/users" do
         @user = User.new(email: params[:email], password: params[:password])
@@ -33,15 +40,22 @@ class ApplicationController < Sinatra::Base
         erb :employee
     end
 
+    get "/users/index/:id" do
+        binding.pry
+        @current_user = User.find_by(email: session[:email])
+        erb :"/users/index"
+    end
+
     helpers do
 
         def login(email, password)
              # check if the user exits, if so set session, else redirect
             user = User.find_by(email: email) #find user by email 
-            if user && user.authenticate(password)
+            if user && user.authenticate(password) #if user exists and autenticates the password set the session
                 session[:email] = user.email
             else
                 redirect "/login"
             end
         end
+    end
 end
