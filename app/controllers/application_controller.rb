@@ -20,9 +20,10 @@ class ApplicationController < Sinatra::Base
         erb :"/users/login"
     end
 
-    post "/users/index" do
+    post "/users/index/" do
         login(params[:email], params[:password])
-        redirect "/users/index/:id"
+        @current_user = User.find_by(email: session[:email])
+        redirect "/users/index/#{@current_user.id}"
     end
 
 
@@ -41,7 +42,6 @@ class ApplicationController < Sinatra::Base
     end
 
     get "/users/index/:id" do
-        binding.pry
         @current_user = User.find_by(email: session[:email])
         erb :"/users/index"
     end
