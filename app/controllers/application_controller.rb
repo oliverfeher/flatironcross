@@ -5,7 +5,7 @@ class ApplicationController < Sinatra::Base
         set :views, "app/views"
 
         enable :sessions
-        set :session_secret, "loginpractice"
+        set :session_secret, "flatironcross"
     end
 
     get "/" do
