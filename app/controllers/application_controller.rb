@@ -32,4 +32,16 @@ class ApplicationController < Sinatra::Base
     get "/employee" do
         erb :employee
     end
+
+    helpers do
+
+        def login(email, password)
+             # check if the user exits, if so set session, else redirect
+            user = User.find_by(email: email) #find user by email 
+            if user && user.authenticate(password)
+                session[:email] = user.email
+            else
+                redirect "/login"
+            end
+        end
 end
