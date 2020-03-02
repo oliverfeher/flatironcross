@@ -17,7 +17,7 @@ class ApplicationController < Sinatra::Base
     end
 
     get "/login" do
-        "Welcome #{@user.email}"
+        erb :login
     end
 
     post "/users" do
