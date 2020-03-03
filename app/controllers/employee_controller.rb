@@ -1,8 +1,8 @@
-class EmployeeContoller < ApplicationController
+class EmployeeController < ApplicationController
 
     get "/employee" do
         erb :employee
     end
 
-    
+
 end

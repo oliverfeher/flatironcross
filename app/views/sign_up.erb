@@ -8,22 +8,30 @@
     </head>
 
 <body>
-    <h2>Sign up!</h2>
-    <form action="/users" method="POST">
-        <div class="imgcontainer">
-            <img src="patient.svg" alt="Avatar" class="avatar">
-        </div>
+    <nav>
+        <ul id="nav-bar">
+            <a class="nav-link" href="/"><li>home</li></a>
+        </ul>
+    </nav>
+    
+    <section id="log_in_form">
+        <h2>Sign up!</h2>
+        <form action="/users" method="POST">
+            <div class="imgcontainer">
+                <img src="patient.svg" alt="Avatar" class="avatar">
+            </div>
 
-        <div class="container">
-            <label class="e-mail" for="email"><b>E-mail:</b></label>
-            <input class="e-mail" type="email" placeholder="Enter E-mail.." name="email" required>
+            <div class="container">
+                <label class="e-mail" for="email"><b>E-mail:</b></label>
+                <input class="e-mail" type="email" placeholder="Enter E-mail.." name="email" required>
 
-            <label class="password" for="password"><b>Password</b></label>
-            <input class="password" type="password" placeholder="Enter Password.." name="password" required>
+                <label class="password" for="password"><b>Password</b></label>
+                <input class="password" type="password" placeholder="Enter Password.." name="password" required>
         
-            <button type="submit">Sign up</button>
-        </div>
-    </form>
+                <button type="submit">Sign up</button>
+            </div>
+        </form>
+    </section>
     
 </body>
 </html>

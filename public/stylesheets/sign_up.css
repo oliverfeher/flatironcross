@@ -4,10 +4,13 @@ body {
     background-color: rgb(25, 111, 208);
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-direction: column;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+#log_in_form {
+  display: flex;
+  flex-direction: column;
+  animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 h2 {
@@ -75,3 +78,26 @@ img.avatar {
       opacity: 1;
     }
   }
+  #nav-bar {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    font-size: 1.3em;
+}
+
+.nav-link {
+    margin-top: 10px;
+    margin-right: 35px;
+    text-decoration: none;
+    color: #F0F0F2;
+    padding: 10px;
+}
+
+
+.nav-link:hover {
+    background-color: rgb(240, 240, 242);
+    color: #196FD0; 
+    border-radius: 15px;
+    border: none;
+}

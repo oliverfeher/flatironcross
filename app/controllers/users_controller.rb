@@ -1,4 +1,4 @@
-class UsersContoller < ApplicationController
+class UsersController < ApplicationController
 
     get "/sign_up" do
         erb :sign_up
@@ -27,4 +27,5 @@ class UsersContoller < ApplicationController
         @current_user = User.find_by(email: session[:email])
         erb :"/users/index"
     end
+
 end
