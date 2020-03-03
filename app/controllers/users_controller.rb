@@ -23,11 +23,15 @@ class UsersController < ApplicationController
     end
 
     post "/users" do
-        @user = User.new(email: params[:email], password: params[:password])
-        if @user.save
-            redirect "/login"
+        if User.all.each { |x| x.email == params[:email]}
+            redirect "/sign_up"
         else
-            redirect "/signup"
+            @user = User.new(email: params[:email], password: params[:password])
+            if @user.save
+                redirect "/login"
+            else
+                redirect "/sign_nup"
+            end
         end
     end
 
