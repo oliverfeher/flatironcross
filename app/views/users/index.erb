@@ -21,9 +21,11 @@
         </nav>
     </header>
 
-
         <%if @current_user.detail%>
-            <div id="show-container">
+            <div id="big_container">
+        <%end%>
+        <%if @current_user.detail%>
+            <div id="show-container" class="entry">
                 <p id="p_prof">Patient's <span>profile:</span></p>
                 <div class='imgcontainer'>
                     <img src='/patient.svg' alt='Avatar' class='avatar'>
@@ -48,12 +50,18 @@
                 </div>
             </div>
         <%else%>
-            <form action='/users/<%=@current_user.id%>/form' method='POST' id='details'>
-            <%=add_user_detail_form%>
+            <form class="entry" action='/users/<%=@current_user.id%>/form' method='POST' id='details'>
+                <%=add_user_detail_form%>
             </form>
         <%end%>
         
-        </form>
-
+        <%if @current_user.detail%>
+            <section id="upcoming" class="entry1">
+                <p id="p_prof">Upcoming <span>appointment:</span></p>
+            </section>
+        <%end%>
+    <%if @current_user.detail%>    
+        </div>
+    <%end%>
     </body>
 </html>
