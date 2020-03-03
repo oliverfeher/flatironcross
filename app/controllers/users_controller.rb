@@ -8,6 +8,10 @@ class UsersController < ApplicationController
         erb :"/users/login"
     end
 
+    get "/logout" do
+        logout!
+    end
+
     post "/users/index/" do
         login(params[:email], params[:password])
         @current_user = User.find_by(email: session[:email])

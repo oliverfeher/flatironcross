@@ -33,6 +33,16 @@ body {
     border: none;
 }
 
+#log-out-button {
+        color: black
+}
+
+#log-out-button:hover {
+        cursor: pointer;
+        color: red;
+}
+
+
 #cta-button {
         color: #f0f0f2;
         text-align: center;
