@@ -75,11 +75,22 @@ button:hover {
   opacity: 0.8;
 }
 
+#p_prof {
+  font-size: 1.5em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 #show-container {
   align-self: flex-start;
-  
+  margin-left: 5%;
+  margin-top: 5%;
+  background-color:#f0f0f2;
+  padding: 25px 50px 25px 50px;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 .imgcontainer {
+  text-align: center;
   margin: 24px 0 12px 0;
 }
 
@@ -91,4 +102,13 @@ img.avatar {
 
 .container {
   padding: 16px;
+}
+
+.detail_title {
+  font-size: 1.2em;
+  text-decoration: underline;
+}
+
+span {
+  color: #196FD0; 
 }

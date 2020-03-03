@@ -24,24 +24,25 @@
 
         <%if @current_user.detail%>
             <div id="show-container">
+                <p id="p_prof">Patient's <span>profile:</span></p>
                 <div class='imgcontainer'>
                     <img src='/patient.svg' alt='Avatar' class='avatar'>
                 </div>
 
                 <div class='non-form-container'>
-                    <p><b>Full name:</b></p>
+                    <p class="detail_title">Full name:</p>
                     <p><%=@current_user.detail.full_name%></p>
                     
-                    <p><b>Date of birth:</b></p>
+                    <p class="detail_title">Date of birth:</p>
                     <p><%=@current_user.detail.dob%></p>
                     
-                    <p><b>Gender:</b></p>
+                    <p class="detail_title">Gender:</p>
                     <p><%=@current_user.detail.gender%></p>
 
-                    <p><b>Current address:</b></p>
+                    <p class="detail_title">Current address:</p>
                     <p><%=@current_user.detail.address%></p>
 
-                    <p><b>Phone number:</b></p>
+                    <p class="detail_title">Phone number:</p>
                     <p><%=@current_user.detail.phone_number%></p>
         
                 </div>

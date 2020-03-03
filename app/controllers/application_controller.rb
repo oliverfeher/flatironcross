@@ -63,8 +63,8 @@ class ApplicationController < Sinatra::Base
                 
                 <label class='gender' for='gender'><b>Gender:</b></label>
                 <select name='gender' form='details' id='gender'>
-                    <option value='female'>Female</option>
-                    <option value='male'>Male</option>
+                    <option value='Female'>Female</option>
+                    <option value='Male'>Male</option>
                     <option value='other'>Other</option>
                 </select>
 
