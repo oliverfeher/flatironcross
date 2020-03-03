@@ -52,7 +52,7 @@ form {
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
-input[type=email], input[type=password], input[type=text], input[type=radio], input[type=date], select  {
+input[type=email], input[type=password], input[type=text], input[type=radio], input[type=date], select{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -75,13 +75,17 @@ button:hover {
   opacity: 0.8;
 }
 
+#show-container {
+  align-self: flex-start;
+  
+}
 .imgcontainer {
-  text-align: center;
   margin: 24px 0 12px 0;
 }
 
 img.avatar {
-  width: 40%;
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
 }
 

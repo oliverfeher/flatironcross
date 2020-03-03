@@ -22,15 +22,30 @@
     </header>
 
 
-        <h1>Welcome :</h1>
-        <h1><%if @current_user.detail%>
-        <%=@current_user.detail.full_name%>
-        <%else%>
-        <%=@current_user.email%></h1>
-        <%end%>
-
-
         <%if @current_user.detail%>
+            <div id="show-container">
+                <div class='imgcontainer'>
+                    <img src='/patient.svg' alt='Avatar' class='avatar'>
+                </div>
+
+                <div class='non-form-container'>
+                    <p><b>Full name:</b></p>
+                    <p><%=@current_user.detail.full_name%></p>
+                    
+                    <p><b>Date of birth:</b></p>
+                    <p><%=@current_user.detail.dob%></p>
+                    
+                    <p><b>Gender:</b></p>
+                    <p><%=@current_user.detail.gender%></p>
+
+                    <p><b>Current address:</b></p>
+                    <p><%=@current_user.detail.address%></p>
+
+                    <p><b>Phone number:</b></p>
+                    <p><%=@current_user.detail.phone_number%></p>
+        
+                </div>
+            </div>
         <%else%>
             <form action='/users/<%=@current_user.id%>/form' method='POST' id='details'>
             <%=add_user_detail_form%>

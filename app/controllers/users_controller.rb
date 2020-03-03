@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
     get "/login" do
         if logged_in?
-            redirect "/users/index/:id"
+            redirect "/users/#{current_user.id}/index"
         else
             erb :"/users/login"
         end
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     post "/users/index/" do
         login(params[:email], params[:password])
         @current_user = User.find_by(email: session[:email])
-        redirect "/users/index/#{@current_user.id}"
+        redirect "/users/#{@current_user.id}/index"
     end
 
     post "/users" do  # Missing error msg for email already being used
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
         end
     end
 
-    get "/users/index/:id" do
+    get "/users/:id/index" do
         @current_user = User.find_by(email: session[:email])
         erb :"/users/index"
     end
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
         @detail.phone_number = params[:phone_number]
         @detail.user_id = @current_user.id
         @detail.save
-        redirect "/users/index/#{@current_user.id}"
+        redirect "/users/#{@current_user.id}/index"
     end
 
 end
