@@ -12,7 +12,7 @@ body {
 h1 {
     justify-self: center;
     align-self: center;
-    font-size: 3em;
+    font-size: 1em;
     color: white;
 }
 
@@ -38,6 +38,11 @@ h1 {
     color: #196FD0; 
     border-radius: 15px;
     border: none;
+}
+
+#log-out-button:hover {
+  cursor: pointer;
+  color: red;
 }
 
 form {

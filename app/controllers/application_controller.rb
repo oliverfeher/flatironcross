@@ -51,12 +51,12 @@ class ApplicationController < Sinatra::Base
 
         def add_user_detail_form
             "<div class='imgcontainer'>
-                <img src='../public/patient.svg' alt='Avatar' class='avatar'>
+                <img src='/patient.svg' alt='Avatar' class='avatar'>
             </div>
 
             <div class='container'>
                 <label class='full_name' for='full_name'><b>Full name:</b></label>
-                <input class='full_name' type='text' placeholder='Enter E-mail..' name='full_name' required>
+                <input class='full_name' type='text' placeholder='Enter your name..' name='full_name' required>
                 
                 <label class='dob' for='dob'><b>Date of birth:</b></label>
                 <input class='dob' type='date' name='dob' required>

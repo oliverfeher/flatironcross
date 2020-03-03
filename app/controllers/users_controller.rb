@@ -24,7 +24,6 @@ class UsersController < ApplicationController
 
     post "/users" do  # Missing error msg for email already being used
         users = User.all.map { |x| x.email}
-        binding.pry
         if users.include?(params[:email])
             redirect "/sign_up"
         else
