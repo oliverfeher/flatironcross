@@ -22,7 +22,7 @@ class UsersController < ApplicationController
         redirect "/users/index/#{@current_user.id}"
     end
 
-    post "/users" do
+    post "/users" do  # Missing error msg for email already being used
         if User.all.each { |x| x.email == params[:email]}
             redirect "/sign_up"
         else
