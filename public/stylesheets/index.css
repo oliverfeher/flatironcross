@@ -181,6 +181,8 @@ footer {
 #employee_login {
         margin-top: 0;
         margin-right: 5%;
+        text-decoration: none;
+        color: black;
 }
 #employee_login:hover {
         cursor: pointer;
