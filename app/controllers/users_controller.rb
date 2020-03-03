@@ -36,4 +36,17 @@ class UsersController < ApplicationController
         erb :"/users/index"
     end
 
+    post "/users/:id/form" do
+        @current_user = User.find_by(email: session[:email])
+        @detail = Detail.new
+        @detail.full_name = params[:full_name]
+        @detail.dob = params[:dob]
+        @detail.gender = params[:gender]
+        @detail.address = params[:address]
+        @detail.phone_number = params[:phone_number]
+        @detail.user_id = @current_user.id
+        @detail.save
+        binding.pry
+    end
+
 end
