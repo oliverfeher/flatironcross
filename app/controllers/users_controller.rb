@@ -46,7 +46,7 @@ class UsersController < ApplicationController
         @detail.phone_number = params[:phone_number]
         @detail.user_id = @current_user.id
         @detail.save
-        binding.pry
+        redirect "/users/index/#{@current_user.id}"
     end
 
 end

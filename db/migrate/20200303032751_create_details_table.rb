@@ -6,8 +6,6 @@ class CreateDetailsTable < ActiveRecord::Migration[5.2]
       x.string :address
       x.string :dob
       x.string :phone_number
-      x.integer :height
-      x.integer :weight
       x.integer :user_id
     end
   end

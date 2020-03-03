@@ -50,8 +50,7 @@ class ApplicationController < Sinatra::Base
         end
 
         def add_user_detail_form
-            "<form action='/users/<%=@current_user.id%>/form' method='POST' id='details'>
-            <div class='imgcontainer'>
+            "<div class='imgcontainer'>
                 <img src='../public/patient.svg' alt='Avatar' class='avatar'>
             </div>
 

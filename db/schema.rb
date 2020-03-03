@@ -18,8 +18,6 @@ ActiveRecord::Schema.define(version: 2020_03_03_032751) do
     t.string "address"
     t.string "dob"
     t.string "phone_number"
-    t.integer "height"
-    t.integer "weight"
     t.integer "user_id"
   end
 

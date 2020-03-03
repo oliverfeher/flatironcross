@@ -22,7 +22,21 @@
 
 
         <h1>Welcome :</h1>
-        <h1><%=@current_user.email%></h1>
+        <h1><%if @current_user.detail%>
+        <%=@current_user.detail.full_name%>
+        <%else%>
+        <%=@current_user.email%></h1>
+        <%end%>
+
+
+        <%if @current_user.detail%>
+        <%else%>
+            <form action='/users/<%=@current_user.id%>/form' method='POST' id='details'>
+            <%=add_user_detail_form%>
+            </form>
+        <%end%>
+        
+        </form>
 
     </body>
 </html>
