@@ -24,6 +24,7 @@
         <%if @current_user.detail%>
             <div id="big_container">
         <%end%>
+
         <%if @current_user.detail%>
             <div id="show-container" class="entry">
                 <p id="p_prof">Patient's <span>profile:</span></p>
@@ -60,8 +61,15 @@
                 <p id="p_prof">Upcoming <span>appointment:</span></p>
             </section>
         <%end%>
-    <%if @current_user.detail%>    
-        </div>
-    <%end%>
+
+        <%if @current_user.detail%>
+            <section id="rx" class="entry2">
+                <p id="p_prof">Current <span>medications:</span></p>
+            </section>
+        <%end%>
+
+        <%if @current_user.detail%>    
+            </div>
+        <%end%>
     </body>
 </html>
