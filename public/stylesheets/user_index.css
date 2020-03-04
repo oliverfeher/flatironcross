@@ -192,3 +192,11 @@ footer {
     opacity: 1;
   }
 }
+
+#med_cross {
+  position: absolute;
+  margin-top: 18%;
+  margin-left: -20%;
+  width: 100%;
+  height: 530px;
+}

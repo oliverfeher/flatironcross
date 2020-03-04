@@ -28,8 +28,27 @@ class ApplicationController < Sinatra::Base
             @current_user ||= User.find_by(email: session[:email]) if session[:email]
         end
 
+        def login_employee(email, password)
+            # check if the user exits, if so set session, else redirect
+           employee = Employee.find_by(email: email) #find user by email 
+           if employee && employee.authenticate(password) #if user exists and autenticates the password set the session
+               session[:email] = employee.email
+           else
+                binding.pry
+               redirect "/employee/login"
+           end
+       end
+
+       def current_employee
+           @current_employee ||= Employee.find_by(email: session[:email]) if session[:email]
+       end
+
         def logged_in?
             !!current_user
+        end
+
+        def employee_logged_in?
+            !!current_employee
         end
 
         def add_account
@@ -38,8 +57,9 @@ class ApplicationController < Sinatra::Base
             end
         end
 
+
         def add_log_out_button
-            if logged_in?
+            if logged_in? || employee_logged_in?
                 "<a class='nav-link' href='/logout' id='log-out-button'><li>log out</li></a>"
             end
         end
