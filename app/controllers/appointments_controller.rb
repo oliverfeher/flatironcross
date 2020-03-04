@@ -12,6 +12,7 @@ class AppointmentsContoller < ApplicationController
         @appointment.apt_date = params[:date]
         @appointment.employee_id = params[:doctor].to_i
         @appointment.user_id = @current_user.id
+        @appointment.status = "pending"
         @appointment.save
         redirect "/login"
     end

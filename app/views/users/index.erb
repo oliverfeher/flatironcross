@@ -63,6 +63,19 @@
                 <div class='imgcontainer'>
                     <img src='/appointment.svg' alt='Avatar' class='avatar'>
                 </div>
+                <%if @appointment_ids.include?(@current_user.id) %>
+                    <p class="detail_title">Doctor's name:</p>
+                    <p><%=@doctor.name%></p>
+                    
+                    <p class="detail_title">Appointment date:</p>
+                    <p><%=@appointment.apt_date%></p>
+                    
+                    <p class="detail_title">Your concerns:</p>
+                    <p><%=@appointment.symptoms%></p>
+
+                    <p class="detail_title">Your appointment's status:</p>
+                    <p><%=@appointment.status%></p>
+                 <%end%>   
             </section>
         <%end%>
 

@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_041437) do
+ActiveRecord::Schema.define(version: 2020_03_04_052306) do
 
   create_table "appointments", force: :cascade do |t|
     t.string "symptoms"
     t.string "diagnosis"
-    t.datetime "apt_date"
+    t.string "apt_date"
     t.boolean "follow_up?"
     t.integer "user_id"
     t.integer "employee_id"
+    t.string "status"
   end
 
   create_table "details", force: :cascade do |t|

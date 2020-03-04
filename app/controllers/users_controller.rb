@@ -38,6 +38,12 @@ class UsersController < ApplicationController
 
     get "/users/:id/index" do
         @current_user = User.find_by(email: session[:email])
+        @appointment_ids = Appointment.all.map { |x| x.user_id}
+
+        if @appointment_ids.include?(@current_user.id)
+            @appointment = Appointment.find_by(user_id: @current_user.id)
+            @doctor = Employee.find_by(id: @appointment.employee_id)
+        end
         erb :"/users/index"
     end
 
