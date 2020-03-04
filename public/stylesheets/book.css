@@ -12,7 +12,7 @@ body {
 h1 {
     justify-self: center;
     align-self: center;
-    font-size: 1em;
+    font-size: 2em;
     color: white;
 }
 
@@ -45,11 +45,15 @@ h1 {
   color: red;
 }
 
+#log_in_form {
+    margin-top: 1%;
+    text-align: center;
+}
 form {
-    margin-top: 5%;
+    align-self:  center;
+    margin: 3% auto auto auto;
     background-color: #f0f0f2;
-    width: 20%;
-    align-self: center;
+    width: 30%;
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
@@ -77,20 +81,12 @@ button:hover {
 }
 
 #p_prof {
+    padding-top: 20px;
   font-size: 1.5em;
   text-align: center;
   text-transform: uppercase;
 }
 
-#show-container {
-  width: 15%;
-  align-self: flex-start;
-  margin-left: 5%;
-  margin-top: 3%;
-  background-color:#f0f0f2;
-  padding: 25px 50px 25px 50px;
-  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-}
 .imgcontainer {
   text-align: center;
   margin: 24px 0 12px 0;
@@ -115,43 +111,10 @@ span {
   color: #196FD0; 
 }
 
-#upcoming {
-  align-self: center;
-  background-color: #f0f0f2;
-  width: 30%;
-  height: 565.875px;
-  padding: 25px 50px 25px 50px;
-  margin-top: 3%;
-  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-  margin-left: 5%;
-}
-
-#rx{
-  align-self: center;
-  background-color: #f0f0f2;
-  width: 20%;
-  height: 565.875px;
-  padding: 25px 50px 25px 50px;
-  margin-top: 3%;
-  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-  margin-left: 5%;
-}
-
-#big_container {
-  display: flex;
-  flex-direction: row;
-}
-
 .entry {
   animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both;
 }
-.entry1 {
-  animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
-}
 
-.entry2 {
-  animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s both;
-}
 
 footer {
   position: fixed;

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FlatironCross Clinic</title>
+        <link href="/stylesheets/book.css" type="text/css" rel="stylesheet">
+    </head>
+
+<body>
+    <nav>
+        <ul id="nav-bar">
+            <a class="nav-link" href="/"><li>home</li></a>
+            <a class="nav-link" href="/login"><li>account</li></a>
+            <%=add_log_out_button%>
+        </ul>
+    </nav>
+    
+    <section id="log_in_form">
+        <h1>Schedule an appointment!</h1>
+        <form class="entry" action='/appointment' method='POST' id='appointment'>
+        <p id="p_prof">Appointment <span>form:</span></p>
+            <div class='imgcontainer'>
+                <img src='/patient.svg' alt='Avatar' class='avatar'>
+            </div>
+
+            <div class='container'>
+                <label for='doctor'><b>Select doctor:</b></label>
+                <select name='doctor' form='appointment' id='doctor'>
+                    <option value="default" selected>Select doctor</option>
+                    <% Employee.all.each do |x| %>
+                    <option value='<%=x.id%>'><%=x.name%></option>
+                    <%end%>
+                </select>
+                
+                <label class='date' for='date'><b>Appointment's date:</b></label>
+                <input class='date' type='date' name='date' required>
+                
+                
+                <label for='address'><b>Enter your concerns:</b></label>
+                <textarea  placeholder='Enter a detailed description' name='symptoms' required></textarea>
+       
+                <button type='submit'>Schedule</button>
+            </div>
+        </form>
+    </section>
+
+    <footer>
+        <ul id="footer">
+            <a class="footer-link"><li>All rights reserved © FlatironCROSS Clinic 2020 | powered by: oliverfeher</li></a> 
+            <a id="employee_login"><li>Logged in as: <span><%=@current_user.email%></span></li></a>        
+        </ul>
+    </footer>
+    
+</body>
+</html>
