@@ -193,11 +193,16 @@ footer {
         margin-right: 5%;
         text-decoration: none;
         color: black;
+        margin-left: auto;
 }
 #employee_login:hover {
         cursor: pointer;
         color: #196FD0;
 }
+
+span {
+        color: #196FD0; 
+      }
 
 
 

@@ -73,9 +73,12 @@
 
     <footer>
         <ul id="footer">
-            <a class="footer-link"><li>All rights reserved © FlatironCROSS Clinic 2020 | powered by: oliverfeher</li></a>
-            <img src="/employee.svg" id="employee">     
-            <a id="employee_login" href="/employee"><li>employee portal</li></a>       
+            <a class="footer-link"><li>All rights reserved © FlatironCROSS Clinic 2020 | powered by: oliverfeher</li></a> 
+            <%if @current_user%>
+                <a id="employee_login" href="/users/<%=@current_user.id%>/index"><li>Logged in as: <span><%=@current_user.email%></span></li></a>
+            <%else%> 
+                <a id="employee_login" href="/employee"><li>employee portal</li></a>
+            <%end%>      
         </ul>
     </footer>
 </body>

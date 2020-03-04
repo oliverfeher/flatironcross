@@ -153,6 +153,29 @@ span {
   animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s both;
 }
 
+footer {
+  position: fixed;
+  background-color: #F0F0F2;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5vh;
+}
+
+#footer {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+#employee_login {
+  margin-top: 0;
+  margin-right: 5%;
+  text-decoration: none;
+  color: black;
+  margin-left: auto;
+}
+
 @keyframes slide-in-elliptic-top-fwd {
   0% {
     -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
