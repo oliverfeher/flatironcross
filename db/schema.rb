@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_032751) do
+ActiveRecord::Schema.define(version: 2020_03_04_030552) do
+
+  create_table "appointments", force: :cascade do |t|
+    t.string "symptoms"
+    t.string "diagnosis"
+    t.datetime "apt_date"
+    t.boolean "follow_up?"
+    t.integer "user_id"
+    t.integer "employee_id"
+  end
 
   create_table "details", force: :cascade do |t|
     t.string "full_name"
