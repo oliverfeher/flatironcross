@@ -86,7 +86,7 @@ button:hover {
   width: 15%;
   align-self: flex-start;
   margin-left: 5%;
-  margin-top: 5%;
+  margin-top: 3%;
   background-color:#f0f0f2;
   padding: 25px 50px 25px 50px;
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -121,7 +121,7 @@ span {
   width: 30%;
   height: 565.875px;
   padding: 25px 50px 25px 50px;
-  margin-top: 5%;
+  margin-top: 3%;
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   margin-left: 5%;
 }
@@ -132,7 +132,7 @@ span {
   width: 20%;
   height: 565.875px;
   padding: 25px 50px 25px 50px;
-  margin-top: 5%;
+  margin-top: 3%;
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   margin-left: 5%;
 }

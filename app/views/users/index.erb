@@ -16,6 +16,7 @@
                 <a class="nav-link" href="#"><li>book</li></a>
                 <a class="nav-link" href="#"><li>history</li></a>
                 <a class="nav-link" href="#"><li>leave a review</li></a>
+                <a class="nav-link" href="#"><li>edit account</li></a>
                 <%=add_log_out_button%>
             </ul>
         </nav>
@@ -59,12 +60,18 @@
         <%if @current_user.detail%>
             <section id="upcoming" class="entry1">
                 <p id="p_prof">Upcoming <span>appointment:</span></p>
+                <div class='imgcontainer'>
+                    <img src='/appointment.svg' alt='Avatar' class='avatar'>
+                </div>
             </section>
         <%end%>
 
         <%if @current_user.detail%>
             <section id="rx" class="entry2">
                 <p id="p_prof">Current <span>medications:</span></p>
+                <div class='imgcontainer'>
+                    <img src='/medicine.svg' alt='Avatar' class='avatar'>
+                </div>
             </section>
         <%end%>
 
