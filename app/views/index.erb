@@ -77,7 +77,7 @@
             <%if @current_user%>
                 <a id="employee_login" href="/users/<%=@current_user.id%>/index"><li>Logged in as: <span><%=@current_user.email%></span></li></a>
             <%else%> 
-                <a id="employee_login" href="/employee"><li>employee portal</li></a>
+                <a id="employee_login" href="/employee/login"><li>employee portal</li></a>
             <%end%>      
         </ul>
     </footer>
