@@ -70,7 +70,9 @@ class ApplicationController < Sinatra::Base
         end
 
         def add_user_detail_form
-            "<div class='imgcontainer'>
+            "
+            <p id='p_prof'>PATIENT'S <span>INFORMATION:</span></p>
+            <div class='imgcontainer'>
                 <img src='/patient.svg' alt='Avatar' class='avatar'>
             </div>
 

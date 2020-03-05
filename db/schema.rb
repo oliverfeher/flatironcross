@@ -14,9 +14,9 @@ ActiveRecord::Schema.define(version: 2020_03_04_055500) do
 
   create_table "appointments", force: :cascade do |t|
     t.string "symptoms"
-    t.string "diagnosis"
+    t.string "reason"
     t.string "apt_date"
-    t.boolean "follow_up?"
+    t.string "full_name"
     t.integer "user_id"
     t.integer "employee_id"
     t.string "status"

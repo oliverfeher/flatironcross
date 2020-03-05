@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>FlatironCross Clinic</title>
-        <link href="/stylesheets/user_index.css" type="text/css" rel="stylesheet">
+        <link href="/stylesheets/employee.css" type="text/css" rel="stylesheet">
     </head>
     
     <body>
@@ -14,17 +14,154 @@
             <ul id="nav-bar">
                 <a class="nav-link" href="/"><li>home</li></a>
                 <a class="nav-link" href="#"><li>edit account</li></a>
+                <a class="nav-link" href="#"><li>edit appointments</li></a>
                 <%=add_log_out_button%>
             </ul>
         </nav>
     </header>
 
+    <img src="/med_cross.svg" id="med_cross">
+
+        <div id="big_container">
+            <div id="show-container" class="entry">
+                <p id="p_prof">Doctor's <span>profile:</span></p>
+                <div class='imgcontainer'>
+                    <img src='/patient.svg' alt='Avatar' class='avatar'>
+                </div>
+
+                <div class='non-form-container'>
+                    <p class="detail_title">Full name:</p>
+                    <p><%=@current_employee.name%></p>
+                    
+                    <p class="detail_title">Medical department:</p>
+                    <p><%=@current_employee.speciality%></p>
+                    
+
+                    <p class="detail_title">E-mail address:</p>
+                    <p><%=@current_employee.email%></p>
+
+                    <p class="detail_title">Experience:</p>
+                    <p><%=@current_employee.experience%> years</p>
+        
+                </div>
+            </div>
+
+            <section id="upcoming" class="entry1">
+                <p id="p_prof">View <span>appointments:</span></p>
+                <div class='imgcontainer'>
+                    <img src='/appointment.svg' alt='Avatar' class='avatar'>
+                </div>
+                    <form action="/employee/<%=@current_employee.id%>/appointment" method="POST"> 
+                        <select name='doctor' form='appointment' id='doctor'>
+                            <option value="default" selected>Appointment requests:</option> 
+                            <% @current_employee.appointments.each do |x| %>                             <!-- REFACTOR to @employee.all.each -->
+                            <option value="<%=x.id%>"><%=x.user.detail.full_name%>, DOB: <%=x.user.detail.dob%>, G: <%=x.user.detail.gender%>, Cell: <%=x.user.detail.phone_number%></option>
+                            <%end%>
+                        </select>
+                    </form> 
+                    <button type='submit' onclick="submitForm()">Select</button>     
+            </section>
+
+        </div>
 
         <footer>
         <ul id="footer">
             <a class="footer-link"><li>All rights reserved © FlatironCROSS Clinic 2020 | powered by: oliverfeher</li></a> 
             <a id="employee_login"><li>Logged in as: <span><%=@current_employee.email%></span></li></a>        
         </ul>
+
+        
+
     </footer>
     </body>
+
+    <script>
+
+        let appointment = document.createElement('DIV');
+        appointment.setAttribute("id", "js_box");
+        appointment.setAttribute("class", "entry");
+
+        const title = document.createElement("p");
+        title.setAttribute("id", "p_prof");
+        title.innerHTML = "Appointment details:"
+
+        x = document.getElementById('doctor').value
+
+        let para = document.createElement('p');
+        let para_name = document.createElement('p');
+        para_name.setAttribute("class", "detail_title");
+        para_name.innerHTML = "Appointment's date:";
+        
+
+        let sym = document.createElement('p');
+        let sym_name = document.createElement('p');
+        sym_name.setAttribute("class", "detail_title");
+        sym_name.innerHTML = "Patient's concerns:";
+
+        let stat = document.createElement('p');
+        let stat_name = document.createElement('p');
+        stat_name.setAttribute("class", "detail_title");
+        stat_name.innerHTML = "Appointment's status:";
+
+        let reason = document.createElement('p');
+        let reason_name = document.createElement('p');
+        reason_name.setAttribute("class", "detail_title");
+        reason_name.innerHTML = "Appointment's reason:";
+
+        let name = document.createElement('p');
+        let name_name = document.createElement('p');
+        name_name.setAttribute("class", "detail_title");
+        name_name.innerHTML = "Patient's name:";
+
+        let table = document.getElementById('big_container');
+       
+        
+      
+        function submitForm() {
+            var http = new XMLHttpRequest();
+            http.open("GET", `/appointment/select/${document.getElementById('doctor').value}`, true);
+            http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            http.onreadystatechange = function() {
+                if(http.readyState === XMLHttpRequest.DONE) {
+                    var status = http.status;
+                    if (status === 0 || (200 >= status && status < 400)) {
+                        let details = http.responseText;
+                        let details2 = JSON.parse(details)
+                        console.log(details2)
+                        const createBox = () => {
+                            table.appendChild(appointment)
+                        }
+                        const createDetails = () => {
+                            let container = document.getElementById('js_box');
+                            container.appendChild(title);
+
+                            container.appendChild(name_name);
+                            container.appendChild(name);
+                            name.innerHTML = details2.full_name;
+
+                            container.appendChild(para_name);
+                            container.appendChild(para);
+                            para.innerHTML = details2.apt_date;
+
+                            container.appendChild(sym_name);
+                            container.appendChild(sym);
+                            sym.innerHTML = details2.symptoms;
+
+                            // container.appendChild(stat_name);
+                            // container.appendChild(stat);
+                            // stat.innerHTML = details2.status;
+
+                            container.appendChild(reason_name);
+                            container.appendChild(reason);
+                            reason.innerHTML = details2.reason;
+                        }
+                        createBox();
+                        createDetails();
+                        }
+                }
+            }
+            http.send();
+        }
+    </script>
+
 </html>

@@ -27,10 +27,19 @@
             <div class='container'>
                 <label for='doctor'><b>Select doctor:</b></label>
                 <select name='doctor' form='appointment' id='doctor'>
-                    <option value="default" selected>Select doctor</option>
-                    <% Employee.all.each do |x| %>
+                    <option value="default" selected>Select doctor</option> 
+                    <% Employee.all.each do |x| %>                             <!-- REFACTOR to @employee.all.each -->
                     <option value='<%=x.id%>'><%=x.name%></option>
                     <%end%>
+                </select>
+
+                <label for='doctor'><b>Select reason:</b></label>
+                <select name='reason' form='appointment' id='doctor'>
+                    <option value="default" selected>Select reason</option> 
+                    <option value='consultation'>Consultation</option>
+                    <option value="surgery">Surgery</option> 
+                    <option value='follow up'>Follow up</option>
+                    <option value='Lab work'>Lab work</option>
                 </select>
                 
                 <label class='date' for='date'><b>Appointment's date:</b></label>
@@ -39,6 +48,9 @@
                 
                 <label for='address'><b>Enter your concerns:</b></label>
                 <textarea  placeholder='Enter a detailed description' name='symptoms' required></textarea>
+
+                <label for='full-name'><b>Enter full name to confirm!</b></label>
+                <input type='text' name='full_name' id="full-name" placeholder="Enter your full name" required>
        
                 <button type='submit'>Schedule</button>
             </div>
