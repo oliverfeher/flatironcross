@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>FlatironCross Clinic</title>
-        <link href="/stylesheets/user_index.css" type="text/css" rel="stylesheet">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlatironCross Clinic</title>
+    <link href="/stylesheets/user_index.css" type="text/css" rel="stylesheet">
+</head>
     
-    <body>
+<body>
 
-     <header>
+    <header>
         <nav>
             <ul id="nav-bar">
                 <a class="nav-link" href="/"><li>home</li></a>
@@ -24,9 +24,9 @@
 
     <img src="/med_cross.svg" id="med_cross">
 
-        <%if @current_user.detail%>
-            <div id="big_container">
-        <%end%>
+    <%if @current_user.detail%>
+        <div id="big_container">
+    <%end%>
 
         <%if @current_user.detail%>
             <div id="show-container" class="entry">

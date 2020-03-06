@@ -6,7 +6,6 @@ class AppointmentsContoller < ApplicationController
     end
 
     post "/appointment" do
-        binding.pry
         @current_user = User.find_by(email: session[:email])
         @appointment = Appointment.new
         @appointment.symptoms = params[:symptoms]

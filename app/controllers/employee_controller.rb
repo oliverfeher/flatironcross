@@ -32,5 +32,11 @@ class EmployeeController < ApplicationController
         redirect "/employee/#{@current_employee.id}/appointment/#{@appointment.id}"
     end
 
+    get "/employee/:id/prescribe" do
+        @current_employee = Employee.find_by(email: session[:email])
+        @patients = User.all
+
+        erb :"/employee/prescribe"
+    end
 
 end

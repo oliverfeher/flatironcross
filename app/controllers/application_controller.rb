@@ -34,7 +34,6 @@ class ApplicationController < Sinatra::Base
            if employee && employee.authenticate(password) #if user exists and autenticates the password set the session
                session[:email] = employee.email
            else
-                binding.pry
                redirect "/employee/login"
            end
        end

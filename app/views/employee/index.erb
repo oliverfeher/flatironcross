@@ -15,6 +15,7 @@
                 <a class="nav-link" href="/"><li>home</li></a>
                 <a class="nav-link" href="#"><li>edit account</li></a>
                 <a class="nav-link" href="#"><li>edit appointments</li></a>
+                <a class="nav-link" href="/employee/<%=@current_employee.id%>/prescribe"><li>prescribe meds</li></a>
                 <%=add_log_out_button%>
             </ul>
         </nav>
@@ -147,9 +148,9 @@
                             container.appendChild(sym);
                             sym.innerHTML = details2.symptoms;
 
-                            // container.appendChild(stat_name);
-                            // container.appendChild(stat);
-                            // stat.innerHTML = details2.status;
+                            container.appendChild(stat_name);
+                            container.appendChild(stat);
+                            stat.innerHTML = details2.status;
 
                             container.appendChild(reason_name);
                             container.appendChild(reason);

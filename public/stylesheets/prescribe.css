@@ -1,0 +1,111 @@
+body {
+    max-height: 100vh;
+    width: 100%;
+    background-color: rgb(25, 111, 208);
+    padding: 0;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#log_in_form {
+  display: flex;
+  flex-direction: column;
+  animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+h2 {
+    text-align: center;
+    color: #f0f0f2
+}
+form {
+    background-color: #f0f0f2;
+    width: 20%;
+    align-self: center;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+input[type=email], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+
+@keyframes slide-in-elliptic-top-fwd {
+    0% {
+      -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
+              transform: translateY(-600px) rotateX(-30deg) scale(0);
+      -webkit-transform-origin: 50% 100%;
+              transform-origin: 50% 100%;
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0) rotateX(0) scale(1);
+              transform: translateY(0) rotateX(0) scale(1);
+      -webkit-transform-origin: 50% 1400px;
+              transform-origin: 50% 1400px;
+      opacity: 1;
+    }
+  }
+  #nav-bar {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    font-size: 1.3em;
+}
+
+.nav-link {
+    margin-top: 10px;
+    margin-right: 35px;
+    text-decoration: none;
+    color: #F0F0F2;
+    padding: 10px;
+}
+
+
+.nav-link:hover {
+    background-color: rgb(240, 240, 242);
+    color: #196FD0; 
+    border-radius: 15px;
+    border: none;
+}
+
+#med_cross {
+  position: absolute;
+  margin-top: 18%;
+  margin-left: -20%;
+  width: 100%;
+  height: 530px;
+}
