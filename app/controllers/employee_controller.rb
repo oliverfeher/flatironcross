@@ -39,4 +39,8 @@ class EmployeeController < ApplicationController
         erb :"/employee/prescribe"
     end
 
+    post "/employee/:id/prescribe" do
+        binding.pry
+    end
+
 end

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FlatironCross Clinic</title>
-    <link href="/stylesheets/user_index.css" type="text/css" rel="stylesheet">
+    <link href="/stylesheets/prescribe.css" type="text/css" rel="stylesheet">
 </head>
     
 <body>
@@ -19,7 +19,7 @@
         </nav>
     </header>  
 
-        <form class="entry" action='' method='POST' id='prescribe'>
+        <form class="entry" action="/employee/<%=@current_employee.id%>/prescribe" method='POST' id='prescribe'>
             <p id='p_prof'>Prescribe <span>MEDS:</span></p>
             <div class='imgcontainer'>
                 <img src='/medicine.svg' alt='Avatar' class='avatar'>
@@ -28,27 +28,20 @@
             <div class='container'>
                 <label class='patient' for='patient'><b>Prescribing for:</b></label>
                 <select name='patient' form='prescribe' id='patient'>
-                            <option value="default" selected>Prescribing for:</option> 
-                            <% @patients.each do |x| %> 
-                            <option value="<%=x.id%>"><%=x.detail.full_name%>, <%=x.detail.dob%></option>
-                            <%end%>
-                </select>
-                
-                <label class='dob' for='dob'><b>Date of birth:</b></label>
-                <input class='dob' type='date' name='dob' required>
-                
-                <label class='gender' for='gender'><b>Gender:</b></label>
-                <select name='gender' form='details' id='gender'>
-                    <option value='Female'>Female</option>
-                    <option value='Male'>Male</option>
-                    <option value='other'>Other</option>
+                    <option value="default" selected>Prescribing for:</option> 
+                    <% @patients.each do |x| %> 
+                    <option value="<%=x.id%>"><%=x.detail.full_name%>, <%=x.detail.dob%></option>
+                    <%end%>
                 </select>
 
-                <label class='address' for='address'><b>Address:</b></label>
-                <input type='text' class='address' placeholder='Enter address..' name='address' required>
+                <label class='rx' for='rx'><b>Rx name:</b></label>
+                <input type='text' class='rx' placeholder='Enter rx..' name='rx' required>
 
-                <label class='phone_number' for='phone_number'><b>Phone number:</b></label>
-                <input class='phone_number' type='text' placeholder='Enter your phonenumber..' name='phone_number' required>
+                <label class='pill_count' for='pill_count'><b>Pill count:</b></label>
+                <input class='pill_count' type='number' placeholder='Enter pill count..' name='pill_count' required>
+
+                <label class='pill_size' for='pill_size'><b>Pill size (in mg):</b></label>
+                <input class='pill_size' type='number' placeholder='Pill size in mg..' name='pill_size' required>
         
                 <button type='submit'>Prescribe</button>
             </div>
