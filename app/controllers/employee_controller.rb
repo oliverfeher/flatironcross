@@ -40,7 +40,18 @@ class EmployeeController < ApplicationController
     end
 
     post "/employee/:id/prescribe" do
-        binding.pry
+        @current_employee = Employee.find_by(email: session[:email])
+        @med = Medicine.new
+        @med.user_id = params[:patient]
+        @med.rx_name = params[:rx]
+        @med.pill_count = params[:pill_count]
+        @med.pill_size = params[:pill_size]
+        @med.employee_id = @current_employee.id
+        @med.save
+        @patient = User.all.find_by(id: params[:patient]).detail
+        @patient.medicine_id = @med.id
+        @patient.save
+        redirect "/employee/#{@current_employee.id}/index"
     end
 
 end

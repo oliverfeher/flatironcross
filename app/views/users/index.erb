@@ -87,6 +87,15 @@
                 <div class='imgcontainer'>
                     <img src='/medicine.svg' alt='Avatar' class='avatar'>
                 </div>
+                
+                <%if @medicine%>
+                    <%@medicine.each do |x|%>
+                    <p>Rx: <span><%=x.rx_name%></span>, Prescribed amount: <span><%=x.pill_count%></span> x <span><%=x.pill_size%></span></p>
+                    <p class="by_doctor"><em>by: Dr. <%=Employee.find_by(id: x.employee_id).name%><em></p>
+                    <%end%>
+                <%end%>
+                    
+                    
             </section>
         <%end%>
 

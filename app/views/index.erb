@@ -25,9 +25,9 @@
     <img src="/medical_staff.svg" id="med_staff">
     <img src="/med_cross.svg" id="med_cross">
 
-    
-    <a id="cta-button" href="/sign_up">Sign up!</a>
-    
+    <%if !session[:email]%>
+        <a id="cta-button" href="/sign_up">Sign up!</a>
+    <%end%>
 
     <section id="hero">
         <div id="title">

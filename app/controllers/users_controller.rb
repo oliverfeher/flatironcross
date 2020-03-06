@@ -40,6 +40,9 @@ class UsersController < ApplicationController
     get "/users/:id/index" do
         @current_user = User.find_by(email: session[:email])
         @appointment_ids = Appointment.all.pluck(:user_id)   ## REFACTOR WITH @CURRENT_USER.APPOINTMENTS.FIRST.EMPLOYEE
+        if @current_user.medicines.size > 0
+            @medicine = @current_user.medicines
+        end
 
         if @appointment_ids.include?(@current_user.id)
             @appointment = Appointment.find_by(user_id: @current_user.id)
