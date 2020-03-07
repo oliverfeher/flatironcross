@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FlatironCross Clinic</title>
+        <link href="/stylesheets/sign_up.css" type="text/css" rel="stylesheet">
+    </head>
+
+<body>
+    <nav>
+        <ul id="nav-bar">
+            <a class="nav-link" href="/"><li>home</li></a>
+        </ul>
+    </nav>
+    
+    <img src="/med_cross.svg" id="med_cross">
+
+    <section id="log_in_form">
+        <h2>Edit your account</h2>
+        <form action="/employee/<%=@current_employee.id%>/edit" method="POST">
+            <input id="hidden" type="hidden" name="_method" value="patch">
+            <div class="imgcontainer">
+                <img src="/patient.svg" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="container">
+                    
+                    <label class="full_name" for="full_name"><b>Full name:</b></label>
+                    <input class="full_name" type="text" name="full_name" value="<%=@current_employee.name%>" required>
+                
+                    <label class="e-mail" for="email"><b>E-mail:</b></label>
+                    <input class="e-mail" type="email"  name="email" value="<%=@current_employee.email%>" required>
+
+                    <label class="experience" for="experience"><b>Years of experience:</b></label>
+                    <input class="experience" type="number"  name="experience" value="<%=@current_employee.experience%>" required>
+
+                    <label class="speciality" for="speciality"><b>Medical department:</b></label>
+                    <input class="speciality" type="text"  name="speciality" value="<%=@current_employee.speciality%>" required>
+
+                    <label class="password" for="password"><b>Enter your current password:</b></label>
+                    <input class="password" type="password" name="password" required>
+            
+                    <button type="submit">Confirm</button>
+            </div>
+        </form>
+    </section>
+
+     <footer>
+        <ul id="footer">
+            <a class="footer-link"><li>All rights reserved © FlatironCROSS Clinic 2020 | powered by: oliverfeher</li></a> 
+            <%if @current_employee%>
+                <a id="employee_login" href="/users/<%=@current_employee.id%>/index"><li>Logged in as: <span><%=@current_employee.email%></span></li></a>
+            <%elsif @current_employee%>
+                <a id="employee_login" href="/employee/<%=@current_employee.id%>/index"><li id="first_javascript" onmouseover="changeName()" onmouseleave="changeNameBack()">Logged in as: <span><%=@current_employee.email%></span></li></a>
+            <%else%> 
+                <a id="employee_login" href="/employee/login"><li>employee portal</li></a>
+            <%end%>      
+        </ul>
+    </footer>
+    
+</body>
+</html>

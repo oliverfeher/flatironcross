@@ -18,7 +18,6 @@ class UsersController < ApplicationController
 
     post "/users/index/" do
         login(params[:email], params[:password])
-        binding.pry
         @current_user = User.find_by(email: session[:email])
         redirect "/users/#{@current_user.id}/index"
     end
@@ -87,7 +86,6 @@ class UsersController < ApplicationController
             user.detail.medicine_id = @current_user.detail.medicine_id
             user.detail.save
             user.save
-            binding.pry
             redirect "/users/#{@current_user.id}/index"
         end
     end

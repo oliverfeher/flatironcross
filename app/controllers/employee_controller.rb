@@ -54,4 +54,9 @@ class EmployeeController < ApplicationController
         redirect "/employee/#{@current_employee.id}/index"
     end
 
+    get "/employee/:id/edit" do
+        @current_employee = Employee.find_by(email: session[:email])
+        erb :"/employee/edit"
+    end
+
 end

@@ -24,7 +24,7 @@ form {
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
-input[type=email], input[type=password], input[type=text], input[type=radio], input[type=date], textarea, select{
+input[type=email], input[type=password], input[type=text], input[type=radio], input[type=date], input[type=number], textarea, select{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;

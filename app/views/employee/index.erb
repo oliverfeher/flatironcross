@@ -13,7 +13,7 @@
         <nav>
             <ul id="nav-bar">
                 <a class="nav-link" href="/"><li>home</li></a>
-                <a class="nav-link" href="#"><li>edit account</li></a>
+                <a class="nav-link" href="/employee/<%=@current_employee.id%>/edit"><li>edit account</li></a>
                 <a class="nav-link" href="/employee/<%=@current_employee.id%>/appointments/edit"><li>edit appointments</li></a>
                 <a class="nav-link" href="/employee/<%=@current_employee.id%>/prescribe"><li>prescribe meds</li></a>
                 <%=add_log_out_button%>
