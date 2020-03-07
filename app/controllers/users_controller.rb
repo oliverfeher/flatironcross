@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
     post "/users/index/" do
         login(params[:email], params[:password])
+        binding.pry
         @current_user = User.find_by(email: session[:email])
         redirect "/users/#{@current_user.id}/index"
     end
@@ -66,6 +67,17 @@ class UsersController < ApplicationController
     get "/users/:id/edit" do
         @current_user = User.find_by(email: session[:email])
         erb :"/users/edit"
+    end
+
+    patch "/users/:id/edit" do
+        @current_user = User.find_by(email: session[:email])
+        @current_user.detail.full_name = params[:full_name]
+        @current_user.detail.phone_number = params[:phone_number]
+        @current_user.detail.address = params[:address]
+        @current_user.email = params[:email]
+        @current_user.save
+        binding.pry
+        redirect "/users/#{@current_user.id}/index"
     end
 
 end

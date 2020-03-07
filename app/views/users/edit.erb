@@ -18,19 +18,27 @@
 
     <section id="log_in_form">
         <h2>Edit your account</h2>
-        <form action="/users" method="POST">
+        <form action="/users/<%=@current_user.id%>/edit" method="POST">
+            <input id="hidden" type="hidden" name="_method" value="patch">
             <div class="imgcontainer">
                 <img src="/patient.svg" alt="Avatar" class="avatar">
             </div>
 
             <div class="container">
-                <label class="e-mail" for="email"><b>E-mail:</b></label>
-                <input class="e-mail" type="email" placeholder="Enter E-mail.." name="email" required>
+                    
+                    <label class="full_name" for="full_name"><b>Full name:</b></label>
+                    <input class="full_name" type="text" placeholder="Enter Password.." name="full_name" value="<%=@current_user.detail.full_name%>" required>
+                
+                    <label class="e-mail" for="email"><b>E-mail:</b></label>
+                    <input class="e-mail" type="email" placeholder="Enter E-mail.." name="email" value="<%=@current_user.email%>" required>
 
-                <label class="password" for="password"><b>Password</b></label>
-                <input class="password" type="password" placeholder="Enter Password.." name="password" required>
-        
-                <button type="submit">Sign up</button>
+                    <label class="phone_number" for="phone_number"><b>Phone number:</b></label>
+                    <input class="phone_number" type="text" placeholder="Enter Password.." name="phone_number" value="<%=@current_user.detail.phone_number%>" required>
+
+                    <label class="address" for="address"><b>Your address:</b></label>
+                    <input class="address" type="text" placeholder="Enter Password.." name="address" value="<%=@current_user.detail.address%>" required>
+            
+                    <button type="submit">Confirm</button>
             </div>
         </form>
     </section>
