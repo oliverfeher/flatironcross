@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlatironCross Clinic</title>
+    <link href="/stylesheets/edit.css" type="text/css" rel="stylesheet">
+</head>
+    
+<body>
+
+    <header>
+        <nav>
+            <ul id="nav-bar">
+                <a class="nav-link" href="/"><li>home</li></a>
+                <a class="nav-link" href="/employee/<%=@current_employee.id%>/index"><li>employee portal</li></a>
+                <%=add_log_out_button%>
+            </ul>
+        </nav>
+    </header>  
+
+        <div id="exform" class="entry">
+            <p id='p_prof'>pending <span>appointments:</span></p>
+            <div class='imgcontainer'>
+                <img src='/appointment.svg' alt='Avatar' class='avatar'>
+            </div>
+
+            <div class='container'>
+                <% @pending_apts.each do |x| %>                             <!-- REFACTOR to @employee.all.each -->
+                    <div class="generate_grid">
+                        <p class="generate_p">Request from: <%=x.user.detail.full_name%></p>
+                        <p class="generate_p">DOB: <%=x.user.detail.dob%>, G: <%=x.user.detail.gender%>, Cell: <%=x.user.detail.phone_number%></p><br>
+                        <div class="cancel_confirm">
+                        
+                            <form method="POST" action="/appointment/update">
+                                <input type="hidden" id="hidden" name="<%=x.id%>">
+                                <input type="submit" class="button" value="Confirm">
+                            </form>
+
+                            <form method="POST" action="/appointment/delete">
+                                <input type="hidden" id="hidden" name="<%=x.id%>">
+                                <input type="submit" id="m-red" class="button" value="Cancel">
+                            </form>
+                        </div>
+                    </div>
+                <%end%>
+            </div>
+        </div>
+
+        <footer>
+        <ul id="footer">
+            <a class="footer-link"><li>All rights reserved © FlatironCROSS Clinic 2020 | powered by: oliverfeher</li></a> 
+            <a id="employee_login"><li>Logged in as: <span><%=@current_employee.email%></span></li></a>        
+        </ul>
+    </footer>
+    </body>
+    </html>

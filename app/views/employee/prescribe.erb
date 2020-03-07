@@ -43,7 +43,7 @@
                 <label class='pill_size' for='pill_size'><b>Pill size (in mg):</b></label>
                 <input class='pill_size' type='number' placeholder='Pill size in mg..' name='pill_size' required>
         
-                <button type='submit'>Prescribe</button>
+                <button onclick="prescribe()" type='submit'>Prescribe</button>
             </div>
         </form>
 
@@ -54,4 +54,9 @@
         </ul>
     </footer>
     </body>
+    <script>
+        const prescribe = () => {
+            alert("Prescribing successful!");
+        }
+    </script>
     </html>

@@ -13,7 +13,11 @@
                 <a class="nav-link button_shadow" href="/"><li>home</li></a>
                 <a class="nav-link button_shadow" href="#"><li>about us</li></a>
                 <a class="nav-link button_shadow" href="#"><li>contact</li></a>
-                <a class="nav-link button_shadow" href="/login"><li>appointments<%=add_account%></li></a>
+                <%if employee_logged_in? %>
+                   <a class="nav-link button_shadow" href="/employee/<%=@current_employee.id%>/index"><li>Dr. <%=@current_employee.name%></li></a> 
+                <%else%>
+                    <a class="nav-link button_shadow" href="/login"><li>appointments<%=add_account%></li></a>
+                <%end%>
                 <a class="nav-link button_shadow" href="#"><li>reviews</li></a>
                 <%=add_log_out_button%>
                 
@@ -52,7 +56,7 @@
 
         <div class="grid-tile-2 grid-width">
         <img src="/calendar.svg" class="grid_icons">
-            <p>Book you appointment:</p>
+            <p>Book your appointment:</p>
             <ul>
                 <li>You are able to book your appointment with
                 your doctor under the appointments menu..</li>
@@ -64,7 +68,7 @@
             <p>Is there an emergency?</p>
             <ul>
                 <li>Tel.: +1 FLATIRON-ER-0101</li>
-                <li>Call the number and our ER time
+                <li>Call the number and our ER team
                 will come to you!</li>
             </ul>
         </div>

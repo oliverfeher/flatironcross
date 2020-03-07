@@ -35,5 +35,18 @@
         </div>
         </form>
     </section> 
+
+     <footer>
+        <ul id="footer">
+            <a class="footer-link"><li>All rights reserved © FlatironCROSS Clinic 2020 | powered by: oliverfeher</li></a> 
+            <%if @current_user%>
+                <a id="employee_login" href="/users/<%=@current_user.id%>/index"><li>Logged in as: <span><%=@current_user.email%></span></li></a>
+            <%elsif @current_employee%>
+                <a id="employee_login" href="/employee/<%=@current_employee.id%>/index"><li id="first_javascript" onmouseover="changeName()" onmouseleave="changeNameBack()">Logged in as: <span><%=@current_employee.email%></span></li></a>
+            <%else%> 
+                <a id="employee_login" href="/employee/login"><li>employee portal</li></a>
+            <%end%>      
+        </ul>
+    </footer>
     
 </body>

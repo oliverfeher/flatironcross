@@ -14,9 +14,8 @@
             <ul id="nav-bar">
                 <a class="nav-link" href="/"><li>home</li></a>
                 <a class="nav-link" href="/users/<%=@current_user.id%>/book"><li>book</li></a>
-                <a class="nav-link" href="#"><li>history</li></a>
                 <a class="nav-link" href="#"><li>leave a review</li></a>
-                <a class="nav-link" href="#"><li>edit account</li></a>
+                <a class="nav-link" href="/users/<%=@current_user.id%>/edit"><li>edit account</li></a>
                 <%=add_log_out_button%>
             </ul>
         </nav>
@@ -77,6 +76,9 @@
 
                     <p class="detail_title">Your appointment's reason:</p>
                     <p><%=@appointment.reason%></p>
+
+                    <p class="detail_title">Your appointment's status:</p>
+                    <p><%=@appointment.status%></p>
                  <%end%>   
             </section>
         <%end%>
@@ -91,7 +93,7 @@
                 <%if @medicine%>
                     <%@medicine.each do |x|%>
                     <p>Rx: <span><%=x.rx_name%></span>, Prescribed amount: <span><%=x.pill_count%></span> x <span><%=x.pill_size%></span></p>
-                    <p class="by_doctor"><em>by: Dr. <%=Employee.find_by(id: x.employee_id).name%><em></p>
+                    <p class="by_doctor">by: Dr. <%=Employee.find_by(id: x.employee_id).name%></p>
                     <%end%>
                 <%end%>
                     

@@ -14,7 +14,7 @@
             <ul id="nav-bar">
                 <a class="nav-link" href="/"><li>home</li></a>
                 <a class="nav-link" href="#"><li>edit account</li></a>
-                <a class="nav-link" href="#"><li>edit appointments</li></a>
+                <a class="nav-link" href="/employee/<%=@current_employee.id%>/appointments/edit"><li>edit appointments</li></a>
                 <a class="nav-link" href="/employee/<%=@current_employee.id%>/prescribe"><li>prescribe meds</li></a>
                 <%=add_log_out_button%>
             </ul>
@@ -99,10 +99,6 @@
         sym_name.setAttribute("class", "detail_title");
         sym_name.innerHTML = "Patient's concerns:";
 
-        let stat = document.createElement('p');
-        let stat_name = document.createElement('p');
-        stat_name.setAttribute("class", "detail_title");
-        stat_name.innerHTML = "Appointment's status:";
 
         let reason = document.createElement('p');
         let reason_name = document.createElement('p');
@@ -113,6 +109,11 @@
         let name_name = document.createElement('p');
         name_name.setAttribute("class", "detail_title");
         name_name.innerHTML = "Patient's name:";
+
+        let stat = document.createElement('p');
+        let stat_name = document.createElement('p');
+        stat_name.setAttribute("class", "detail_title");
+        stat_name.innerHTML = "Appointment's status:";
 
         let table = document.getElementById('big_container');
        

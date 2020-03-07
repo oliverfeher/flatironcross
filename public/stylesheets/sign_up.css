@@ -61,6 +61,29 @@ img.avatar {
   padding: 16px;
 }
 
+footer {
+  position: fixed;
+  background-color: #F0F0F2;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5vh;
+}
+
+#footer {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+#employee_login {
+  margin-top: 0;
+  margin-right: 5%;
+  text-decoration: none;
+  color: black;
+  margin-left: auto;
+}
+
 
 @keyframes slide-in-elliptic-top-fwd {
     0% {
