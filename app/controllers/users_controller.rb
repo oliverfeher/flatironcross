@@ -71,13 +71,24 @@ class UsersController < ApplicationController
 
     patch "/users/:id/edit" do
         @current_user = User.find_by(email: session[:email])
-        @current_user.detail.full_name = params[:full_name]
-        @current_user.detail.phone_number = params[:phone_number]
-        @current_user.detail.address = params[:address]
-        @current_user.email = params[:email]
-        @current_user.save
-        binding.pry
-        redirect "/users/#{@current_user.id}/index"
-    end
 
+        if !@current_user.authenticate(params[:password])
+            redirect "/users/:id/edit"
+        else
+            user = User.find_by(id: @current_user.id)
+            user.detail.full_name = params[:full_name]
+            user.detail.phone_number = params[:phone_number]
+            user.detail.address = params[:address]
+            user.email = params[:email]
+            user.password = params[:password]
+            user.detail.gender = @current_user.detail.gender
+            user.detail.dob = @current_user.detail.dob
+            user.detail.user_id = @current_user.id
+            user.detail.medicine_id = @current_user.detail.medicine_id
+            user.detail.save
+            user.save
+            binding.pry
+            redirect "/users/#{@current_user.id}/index"
+        end
+    end
 end
