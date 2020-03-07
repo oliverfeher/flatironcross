@@ -14,7 +14,7 @@
             <ul id="nav-bar">
                 <a class="nav-link" href="/"><li>home</li></a>
                 <a class="nav-link" href="/users/<%=@current_user.id%>/book"><li>book</li></a>
-                <a class="nav-link" href="/users/review"><li>leave a review</li></a>
+                <a class="nav-link" href="/users/new_review"><li>leave a review</li></a>
                 <a class="nav-link" href="/users/<%=@current_user.id%>/edit"><li>edit account</li></a>
                 <%=add_log_out_button%>
             </ul>
@@ -105,7 +105,7 @@
             </div>
         <%end%>
 
-        <footer>
+    <footer>
         <ul id="footer">
             <a class="footer-link"><li>All rights reserved © FlatironCROSS Clinic 2020 | powered by: oliverfeher</li></a> 
             <a id="employee_login"><li>Logged in as: <span><%=@current_user.email%></span></li></a>        

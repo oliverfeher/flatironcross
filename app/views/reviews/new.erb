@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FlatironCross Clinic</title>
+        <link href="/stylesheets/new_review.css" type="text/css" rel="stylesheet">
+    </head>
+
+<body>
+    <nav>
+        <ul id="nav-bar">
+            <a class="nav-link" href="/"><li>home</li></a>
+        </ul>
+    </nav>
+    
+    <img src="/med_cross.svg" id="med_cross">
+
+    <section id="log_in_form">
+        <h2>Leave a review</h2>
+        <form action="/review/new" method="POST" id="review">
+            <div class="imgcontainer">
+                <img src="/customer-review.svg" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="container">
+                    
+                    <label class="title" for="title"><b>Review Title:</b></label>
+                    <input class="title" type="text"  name="title"  required>
+
+                    <label class="content" for="content"><b>Tell us your experience:</b></label>
+                    <textarea placeholder="Share your experience" name="content"></textarea>
+
+                    <label class="rating" for="rating"><b>Rate us:</b></label>
+                    <select name="rating" for="review">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+
+                    <label class="password" for="password"><b>Enter your current password:</b></label>
+                    <input class="password" type="password" name="password" required>
+            
+                    <button type="submit">Confirm</button>
+            </div>
+        </form>
+    </section>
+
+     <footer>
+        <ul id="footer">
+            <a class="footer-link"><li>All rights reserved © FlatironCROSS Clinic 2020 | powered by: oliverfeher</li></a> 
+            <a id="employee_login"><li>Logged in as: <span><%=@current_user.email%></span></li></a>        
+        </ul>
+    </footer>
+    
+</body>
+</html>

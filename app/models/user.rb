@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
     has_many :employees, through: :appointments
     has_many :medicines
     has_many :employees, through: :medicines
+    has_many :reviews
 end
