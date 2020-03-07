@@ -1,4 +1,5 @@
 class ReviewController < ApplicationController
+
     get "/users/new_review" do
         @current_user = User.find_by(email: session[:email])
         erb :"/reviews/new"
@@ -15,4 +16,12 @@ class ReviewController < ApplicationController
 
         redirect "/users/#{@current_user.id}/index"
     end
+
+    get "/reviews" do
+        @current_employee = Employee.find_by(email: session[:email])
+        @current_user = User.find_by(email: session[:email])
+        @reviews = Review.all
+        erb :"/reviews/reviews"
+    end
+
 end

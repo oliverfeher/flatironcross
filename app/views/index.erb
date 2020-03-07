@@ -11,14 +11,13 @@
         <nav>
             <ul id="nav-bar">
                 <a class="nav-link button_shadow" href="/"><li>home</li></a>
-                <a class="nav-link button_shadow" href="#"><li>about us</li></a>
                 <a class="nav-link button_shadow" href="#"><li>contact</li></a>
                 <%if employee_logged_in? %>
                    <a class="nav-link button_shadow" href="/employee/<%=@current_employee.id%>/index"><li>Dr. <%=@current_employee.name%></li></a> 
                 <%else%>
                     <a class="nav-link button_shadow" href="/login"><li>appointments<%=add_account%></li></a>
                 <%end%>
-                <a class="nav-link button_shadow" href="#"><li>reviews</li></a>
+                <a class="nav-link button_shadow" href="/reviews"><li>reviews</li></a>
                 <%=add_log_out_button%>
                 
             </ul>

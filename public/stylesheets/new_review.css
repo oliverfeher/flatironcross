@@ -52,8 +52,12 @@ button:hover {
   margin: 24px 0 12px 0;
 }
 
+span {
+  color: #196FD0; 
+}
+
 img.avatar {
-  width: 20%;
+  width: 10%;
   border-radius: 50%;
 }
 

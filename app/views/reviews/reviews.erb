@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlatironCross Clinic</title>
+    <link href="/stylesheets/reviews.css" type="text/css" rel="stylesheet">
+</head>
+    
+<body>
+
+    <header>
+        <nav>
+            <ul id="nav-bar">
+                <a class="nav-link" href="/"><li>home</li></a>
+                <%if @current_user%>
+                    <a class="nav-link" href="/users/new_review"><li>leave a review</li></a>
+                <%end%>
+
+                <%if @current_employee%>
+                    <a class="nav-link button_shadow" href="/employee/<%=@current_employee.id%>/index"><li>Dr. <%=@current_employee.name%></li></a>
+                <%elsif @current_user%>
+                    <a class="nav-link button_shadow" href="/login"><li>appointments<%=add_account%></li></a>
+                <%end%>
+                <%=add_log_out_button%>
+            </ul>
+        </nav>
+    </header>
+
+    <img src="/med_cross.svg" id="med_cross">
+
+        <div id="big_container">
+            <h1>ALL REVIEWS:</h1>
+            <%@reviews.each do |x|%>
+            <section id="upcoming" class="entry">
+                <div class="imgcontainer">
+                    <img src="customer-review.svg" alt="Avatar" class="avatar">
+                </div>
+                <div class="review-content">
+                    <p id="p_prof">From: Anonymus - Date: <span><%=x.date%></span> Rating: <span><%=x.rating%></span></p>
+                    <p><%=x.title%></p>
+                    <p><%=x.content%></p>
+                <div>
+            </section>
+            <%end%>
+    <footer>
+        <ul id="footer">
+            <a class="footer-link"><li>All rights reserved © FlatironCROSS Clinic 2020 | powered by: oliverfeher</li></a> 
+            <%if @current_user%>
+                <a id="employee_login"><li>Logged in as: <span><%=@current_user.email%></span></li></a>
+            <%elsif @current_employee%>
+                <a id="employee_login" href="/employee/<%=@current_employee.id%>/index"><li>Logged in as: <span><%=@current_employee.email%></span></li></a>
+            <%end%>        
+        </ul>
+    </footer>
+    </body>
+</html>
