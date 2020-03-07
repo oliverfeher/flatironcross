@@ -59,4 +59,19 @@ class EmployeeController < ApplicationController
         erb :"/employee/edit"
     end
 
+    patch "/employee/:id/edit" do
+        @current_employee = Employee.find_by(email: session[:email])
+        if @current_employee.authenticate(params[:password])
+            @current_employee = Employee.find_by(email: session[:email])
+            @current_employee.name = params[:full_name]
+            @current_employee.email = params[:email]
+            @current_employee.experience = params[:experience]
+            @current_employee.speciality = params[:speciality]
+            @current_employee.save
+            redirect "employee/#{@current_employee.id}/index"
+        else
+            redirect "/employee/:id/edit"
+        end
+    end
+
 end
