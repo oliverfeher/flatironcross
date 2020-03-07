@@ -30,9 +30,11 @@
     <img src="/med_cross.svg" id="med_cross">
 
         <div id="big_container">
-            <h1>ALL REVIEWS:</h1>
+            <h1>ALL REVIEWS</h1>
+            <h2>Our average rating is: <span id="span2"><%=@avg_rating%></span></h2>
+
             <%@reviews.each do |x|%>
-            <section id="upcoming" class="entry">
+            <section id="upcoming">
                 <div class="imgcontainer">
                     <img src="customer-review.svg" alt="Avatar" class="avatar">
                 </div>

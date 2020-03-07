@@ -11,7 +11,7 @@
         <nav>
             <ul id="nav-bar">
                 <a class="nav-link button_shadow" href="/"><li>home</li></a>
-                <a class="nav-link button_shadow" href="#"><li>contact</li></a>
+                <a class="nav-link button_shadow" href="/contact"><li>contact</li></a>
                 <%if employee_logged_in? %>
                    <a class="nav-link button_shadow" href="/employee/<%=@current_employee.id%>/index"><li>Dr. <%=@current_employee.name%></li></a> 
                 <%else%>

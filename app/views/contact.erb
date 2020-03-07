@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlatironCross Clinic</title>
+    <link href="/stylesheets/contact.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul id="nav-bar">
+                <a class="nav-link button_shadow" href="/"><li>home</li></a>
+                <a class="nav-link button_shadow" href="#"><li>contact</li></a>
+                <%if employee_logged_in? %>
+                   <a class="nav-link button_shadow" href="/employee/<%=@current_employee.id%>/index"><li>Dr. <%=@current_employee.name%></li></a> 
+                <%else%>
+                    <a class="nav-link button_shadow" href="/login"><li>appointments<%=add_account%></li></a>
+                <%end%>
+                <a class="nav-link button_shadow" href="/reviews"><li>reviews</li></a>
+                <%=add_log_out_button%>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <img src="/med_cross.svg" id="med_cross">
+
+   <div id="split">
+        <iframe class="entry" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d756.144522551611!2d-74.01445117076693!3d40.7052888153652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a5c6512a7d%3A0xd0cd5a687aea106e!2sFlatiron%20School!5e0!3m2!1sen!2sus!4v1583566777510!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+    
+        <section id="work-grid">
+
+            <div class="grid-tile-1 grid-width">
+                <img src="/timetable.svg" class="grid_icons">
+                <p>Opening Hours:</p>
+                <ul>
+                    <li>Monday-Friday: 06.00 - 23.00</li>
+                    <li>Saturday-Sunday: 08.00 - 20.00</li>
+                    <li>Emergency Room: 24/7</li>
+                </ul>
+            </div>
+
+            <div class="grid-tile-2 grid-width">
+            <img src="/calendar.svg" class="grid_icons">
+                <p>Book your appointment:</p>
+                <ul>
+                    <li>You are able to book your appointment with
+                    your doctor under the appointments menu..</li>
+                </ul>
+            </div>
+
+            <div class="grid-tile-3 grid-width">
+            <img src="/ambulance.svg" class="grid_icons">
+                <p>Is there an emergency?</p>
+                <ul>
+                    <li>Tel.: +1 FLATIRON-ER-0101</li>
+                    <li>Call the number and our ER team
+                    will come to you!</li>
+                </ul>
+            </div>
+
+        </section>
+    </div>
+
+    <footer>
+        <ul id="footer">
+            <a class="footer-link"><li>All rights reserved © FlatironCROSS Clinic 2020 | powered by: oliverfeher</li></a> 
+            <%if @current_user%>
+                <a id="employee_login" href="/users/<%=@current_user.id%>/index"><li>Logged in as: <span><%=@current_user.email%></span></li></a>
+            <%elsif @current_employee%>
+                <a id="employee_login" href="/employee/<%=@current_employee.id%>/index"><li id="first_javascript" onmouseover="changeName()" onmouseleave="changeNameBack()">Logged in as: <span><%=@current_employee.email%></span></li></a>
+            <%else%> 
+                <a id="employee_login" href="/employee/login"><li>employee portal</li></a>
+            <%end%>      
+        </ul>
+    </footer>
+</body>
+
+
+<%if employee_logged_in?%>
+    <script>
+        const link = document.getElementById("first_javascript");
+
+
+        const changeName = () => {
+            link.innerHTML = "Enter employee portal"
+        };
+
+        const changeNameBack = () => {
+            link.innerHTML = "Logged in as: <span><%=@current_employee.email%></span>"
+        }
+    </script>
+<%end%>
+
+
+</html>

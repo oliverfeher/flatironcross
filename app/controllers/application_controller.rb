@@ -12,6 +12,10 @@ class ApplicationController < Sinatra::Base
         erb :index
     end
 
+    get "/contact" do
+        erb :contact
+    end
+
     helpers do
 
         def login(email, password)
